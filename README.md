@@ -25,8 +25,6 @@ A full-stack AI-powered content exploration platform enabling users to perform r
     
 -   [Testing](#testing)
     
--   [Environment Variables](#environment-variables)
-    
 -   [Folder Structure](#folder-structure)
     
 -   [API Endpoints](#api-endpoints)
@@ -215,38 +213,6 @@ The application follows a modular layered architecture:
     npm test
     
     ```
-    
--   **End-to-End (Planned)**  
-    Playwright or Cypress can be configured to test full user flows.
-    
-
-----------
-
-## Environment Variables
-
-### Backend  `.env`  example variables:
-
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/ai_content_explorer
-REDIS_URL=redis://localhost:6379/0
-
-JWT_SECRET_KEY=your_super_secret_key
-JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
-JWT_REFRESH_TOKEN_EXPIRE_MINUTES=1440
-
-TAVILY_MCP_API_KEY=your_tavily_api_key
-TAVILY_MCP_PROFILE=your_tavily_profile
-
-FLUX_MCP_API_KEY=your_flux_api_key
-
-```
-
-### Frontend  `.env.local`  example:
-
-```env
-VITE_API_BASE_URL=http://localhost:8000
-
-```
 
 ----------
 
