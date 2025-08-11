@@ -33,8 +33,6 @@ A full-stack AI-powered content exploration platform enabling users to perform r
     
 -   [Contributing](#contributing)
     
--   [License](#license)
-    
 
 ----------
 
