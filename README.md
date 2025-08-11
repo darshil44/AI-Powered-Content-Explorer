@@ -112,7 +112,7 @@ The application follows a modular layered architecture:
 2.  **Clone the repo**
     
     ```bash
-    git clone <your_repo_url>
+    git clone https://github.com/darshil44/AI-Powered-Content-Explorer.git
     cd backend
     
     ```
