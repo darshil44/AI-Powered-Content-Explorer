@@ -35,7 +35,6 @@ async def login_user(payload: auth_schemas.UserCreate, response: Response, sessi
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(subject=str(user.id), expires_delta=access_token_expires)
 
-    # Set HTTP-only cookie
     response.set_cookie(
         key="access_token",
         value=access_token,

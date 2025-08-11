@@ -7,11 +7,11 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if user is logged in on mount
+  
   useEffect(() => {
     async function checkAuth() {
       try {
-        // Call a backend endpoint to get user info or verify token
+        
         const res = await api.get("/auth/me");
         setUser(res.data);
       } catch {
@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
 
   const login = (userData) => setUser(userData);
   const logout = async () => {
-    await api.post("/auth/logout"); // call backend logout
+    await api.post("/auth/logout"); 
     setUser(null);
   };
 
@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
   );
 }
 
-// Custom hook for easy access
+
 export function useAuth() {
   return useContext(AuthContext);
 }

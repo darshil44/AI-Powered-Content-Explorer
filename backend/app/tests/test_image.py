@@ -15,7 +15,7 @@ async def test_image_generation(client, redis_mock, monkeypatch):
     assert not json_res["cached"]
     assert "image_url" in json_res
 
-    # Cached call
+
     res = await client.post("/api/v1/image/", json=data)
     assert res.status_code == 201
     assert res.json()["cached"]

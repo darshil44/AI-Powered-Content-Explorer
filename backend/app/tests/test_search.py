@@ -15,7 +15,7 @@ async def test_search_endpoint(client, redis_mock, monkeypatch):
     assert res.json()["cached"] is False
     assert "result" in res.json()
 
-    # Second call should be cached
+
     res = await client.post("/api/v1/search/", json=data)
     assert res.status_code == 200
     assert res.json()["cached"] is True

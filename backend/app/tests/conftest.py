@@ -7,7 +7,6 @@ from app.db.session import get_session
 from app.core.config import settings
 import asyncio
 
-# Create a new test DB URL (adjust accordingly)
 TEST_DATABASE_URL = "postgresql+asyncpg://user:password@localhost/test_db"
 
 engine_test = create_async_engine(TEST_DATABASE_URL, future=True, echo=False)
@@ -15,19 +14,17 @@ TestingSessionLocal = sessionmaker(engine_test, class_=AsyncSession, expire_on_c
 
 @pytest.fixture(scope="session")
 def event_loop():
-    # For asyncio event loop in pytest-asyncio
     loop = asyncio.get_event_loop()
     yield loop
     loop.close()
 
 @pytest.fixture(scope="session", autouse=True)
 async def prepare_database():
-    # Create tables before tests
+   
     from app.models import SQLModel
     async with engine_test.begin() as conn:
         await conn.run_sync(SQLModel.metadata.create_all)
     yield
-    # Drop tables after tests (optional)
     async with engine_test.begin() as conn:
         await conn.run_sync(SQLModel.metadata.drop_all)
 
@@ -38,7 +35,6 @@ async def db_session():
 
 @pytest.fixture()
 async def client(db_session):
-    # Override get_session dependency
     async def override_get_session():
         yield db_session
 
@@ -49,7 +45,7 @@ async def client(db_session):
 
     app.dependency_overrides.clear()
 
-# Mock Redis client fixture (simple dict mock)
+
 class MockRedis:
     def __init__(self):
         self.store = {}

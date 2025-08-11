@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 export default function ImageGen() {
   const [prompt, setPrompt] = useState("");
-  const [images, setImages] = useState([]); // array of image URLs/base64 strings
+  const [images, setImages] = useState([]); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
